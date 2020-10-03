@@ -6,6 +6,10 @@
 
 /* горячие клавиши по требованиям из functional kit, страница 5
 e.which = e.keyCode (оба устарели)
+e.code рекомендуется использовать
+конкретная нажатая клавиша, например Shift:
+e.which = 16 для ShiftLeft, ShiftRight
+e.code=ShiftLeft, e.code=ShiftRight
 в ките есть metaKey, это клавиша win или cmd. я вместо нее проставила control, как в фигме */
 
 // $(window).keydown(function(e) { // jquery
@@ -111,7 +115,7 @@ window.addEventListener('keydown', function(e) { // clear js
         console.log('Control + S = Open Shortcuts');
     }
 
-    // console.log(e);
+    console.log(e);
     // console.log(e.key +' = '+ e.which);
     // console.log(e.key);
 });
