@@ -236,8 +236,6 @@ h3 {
   padding: 10px !important; }
 
 .status {
-  box-sizing: border-box;
-  -webkit-text-size-adjust: none;
   background-color: rgba(255,255,255,1.0);
   border-color: rgba(0,0,0,0);
   border-radius: 10px;
@@ -245,37 +243,69 @@ h3 {
   border-width: 0.5px;
   box-shadow: 0px 0px 24px rgba(0,0,0,0.16), 0px 0px 2px rgba(0,0,0,0.08);
   height: 56px;
-  left: 8px;
+  top: 8px;
+  right: 8px;
   overflow: hidden;
   position: relative;
-  top: 8px;
   width: 359px;
+  display: none;
 }
-  .status svg {
-    box-sizing: border-box;
-    background-color: rgba(255,255,255,0);
+  .status_icon {
     height: 24px;
     left: 12px;
     position: absolute;
     top: 16px;
     width: 24px;
   }
-  .status.status_text {
+  .status.wait .status_icon {background-image: url(img/status-wait.gif);}
+  .status.success .status_icon {background-image: url(img/status-success.svg);}
+  .status.error .status_icon {background-image: url(img/status-error.svg);}
+  .status.wait, .status.success, .status.error {
+    /* display: block; */
+  }
+  .status.success {
+    height: 80px;
+  }
+  .status_text {
     box-sizing: border-box;
-    -webkit-text-size-adjust: none;
-    background-color: rgba(0,0,0,0);
-    color: rgba(0,0,0,1.0);
+    color: black;
     font-family: 'SF Pro Text', Helvetica, Arial, serif;
-    font-size: 15.0px;
-    font-style: normal;
+    font-size: 15px;
     font-weight: 400;
     height: auto;
     left: 48px;
     letter-spacing: -0.24px;
     line-height: 20.0px;
     position: absolute;
-    text-align: left;
+    /* text-align: left; */
     top: 18px;
     white-space: nowrap;
-    width: auto;
+    /* width: auto; */
+  }
+  .status.success {height: 80px;}
+  .status_app, .status_view {
+    color: rgb(125,43,229);
+    font-family: 'SF Pro Text', Helvetica, Arial, serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: auto;
+    left: 260px;
+    letter-spacing: -0.15px;
+    line-height: 18.0px;
+    position: absolute;
+    text-align: center;
+    top: 46px;
+    white-space: nowrap;
+    text-decoration: none;
+    /* width: auto; */
+    display: none;
+  }
+  .status.success .status_app, .status.success .status_view {display: block;}
+  .status_view {left: 47px;}
+  .status_app {left: 150px;}
+
+  .status_close {
+    font-size: 2em;
+    position: absolute;
+    right: 7px;
   }

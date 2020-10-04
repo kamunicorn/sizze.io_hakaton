@@ -4,7 +4,7 @@
     <title>Title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -176,17 +176,15 @@
 </div>
 
 <!-- уведомления о статусе -->
-<div class="status">   
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0C18.6289 0 24 5.37258 24 12L23.9962 12.305C23.8344 18.7929 18.5255 24 12 24L11.695 23.9962C5.20713 23.8344 0 18.5255 0 12L0.00379986 11.695C0.165607 5.20713 5.47454 0 12 0ZM18.2918 7.66519C17.9107 7.29875 17.292 7.29612 16.9121 7.6614L10 14.3077L7.09412 11.5136C6.70693 11.1413 6.09027 11.144 5.7082 11.5113L5.6918 11.5271C5.31071 11.8936 5.31126 12.4916 5.69523 12.8608L9.30477 16.3315C9.68723 16.6993 10.3095 16.7024 10.6913 16.3353L18.3087 9.01084C18.6902 8.64404 18.6903 8.04834 18.3082 7.68096L18.2918 7.66519Z" fill="#7D2BE5"></path>
-    </svg>
-    
-    
-  <div class="status with_text" contenteditable="false" style="box-sizing:border-box;-webkit-text-size-adjust:none;background-color:rgba(0,0,0,0);color:rgba(0,0,0,1.0);font-family:'SF Pro Text', Helvetica, Arial, serif;font-size:15.0px;font-style:normal;font-weight:400;height:auto;left:48px;letter-spacing:-0.24px;line-height:20.0px;position:absolute;text-align:left;top:18px;white-space:nowrap;width:auto;">Ссылка скопирована</div>
-  <div class="brick with_text" contenteditable="false" style="box-sizing:border-box;-webkit-text-size-adjust:none;background-color:rgba(125,43,229,0);color:rgba(125,43,229,1.0);font-family:'SF Pro Text', Helvetica, Arial, serif;font-size:14.0px;font-style:normal;font-weight:500;height:auto;left:260px;letter-spacing:-0.15px;line-height:18.0px;position:absolute;text-align:center;top:18px;white-space:nowrap;width:auto;">Поделиться</div>
+<div class="status">
+  <span class="status_icon"></span>
+  <span class="status_text">Приложение экспортировано!</span>
+  <a href="#" class="status_view">Просмотр</a>
+  <a href="#" class="status_app">Приложение apk</a>
+  <span class="status_close" onclick="closeStatus(this)">&times;</span>
 </div>
 
-<script type="text/javascript" src="bundle.js"></script>
+<script src="bundle.js"></script>
 <script src="https://daybrush.com/moveable/release/latest/dist/moveable.js"></script>
 <!-- <script src="js/hotkey.js"></script> -->
 <script src="js/main.js"></script>

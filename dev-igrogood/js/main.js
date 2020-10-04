@@ -37,6 +37,8 @@ function newText() {
 	});
 	moveableStart(newBlock.id);
 }
+// заглушка
+function newCircle () {}
 
 function moveableStart(elementId, container) {
 	moveableStop();
@@ -192,38 +194,52 @@ function exportHtml() {
 	let html = document.getElementById('iphoneX').innerHTML,
 		requestStr = 'appName=testApp&data=' + encodeURIComponent(html),
 		xhr = new XMLHttpRequest();
-
-	console.log(requestStr);
+	// console.log(requestStr);
 	
 	// xhr.open('POST', 'index.php', true);
 	xhr.open('POST', 'http://sizze.igrogood.ru/index.php', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send(requestStr);
-	showStatus('wait');
+	showStatus({status: 'wait', message: 'Идет экспорт...'});
 	xhr.onreadystatechange = function() { // Ждём ответа от сервера
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
-				let response = xhr.responseText;
+				let response;
+				// response = JSON.parse(xhr.responseText);
+				response = { // заглушка, пока нет json
+					status: 'success',
+					message: 'Приложение успешно экспортировано!'
+				};
+				// if (!response.status) {
+				// 	response.status = 'success';
+				// 	response.message = 'Приложение успешно экспортировано!';
+				// }
+				console.log( xhr.responseText);
 				console.log(response);
-				if (myResponse == 'success') {
-					showStatus('success');
-					console.log('Данные получены сервером.');
-				} else
-				if (myResponse == 'error') {
-					showStatus('error');
+				showStatus(response);
+				if (response.status == 'error') {
 					console.log('Что-то пошло не так:(');
 				}
-				
-			}; // 200 - Сервер вернул код 200 успех
-		}; // 4 - данные загружены
+			};
+		};
 	};
 }
 
-function showStatus() {
-	// wait
-	// success
-	// error
-	
+function showStatus(response) {
+	// wait, success, error
+	let status = document.querySelector('.status');
+	status.style.display = 'block';
+	status.classList.add(response.status);
+	status.querySelector('.status_text').textContent = response.message;
+	if (response.success) {
+		// viewing=http://sizze.igrogood.ru/37482965,applink=none
+		status.querySelector('.status_view').setAttribute('href', response.viewing);
+		status.querySelector('.status_app').setAttribute('href', response.applink);
+	}
+}
+function closeStatus(close) {
+	close.parentElement.style.display = 'none';
+	close.parentElement.classList.remove('wait', 'error', 'success')
 }
 
 /* выделение элементов */
