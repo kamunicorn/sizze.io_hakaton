@@ -231,7 +231,7 @@ function showStatus(response) {
 	status.style.display = 'block';
 	status.classList.add(response.status);
 	status.querySelector('.status_text').textContent = response.message;
-	if (response.success) {
+	if (response.status == 'success') {
 		// viewing=http://sizze.igrogood.ru/37482965,applink=none
 		status.querySelector('.status_view').setAttribute('href', response.viewing);
 		status.querySelector('.status_app').setAttribute('href', response.applink);
