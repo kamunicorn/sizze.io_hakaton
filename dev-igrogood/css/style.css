@@ -21,6 +21,10 @@ body {
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	top: 50%;
 	left: 50%;
+    transform: translateX(-50%);
+	border-radius: 47px;
+	overflow: hidden;
+	padding-top: 30px;
 }
 
 .rectangle {
