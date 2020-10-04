@@ -462,9 +462,8 @@ function newScreenForm() {
 function exportHtml() {
 	let screens = [];
 	document.querySelectorAll('.screenForm').forEach(function(screen) {
-		screen = screen.firstElementChild;
 		screens.push({
-			name: screen.id,
+			name: screen.firstElementChild.id,
 			html: screen.innerHTML
 		});
 	});
